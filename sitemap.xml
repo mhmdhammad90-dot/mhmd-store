@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://mhmd.store/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://mhmd.store/assets/og.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/retail.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/matrix.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/nawah.jpg</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/personal.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://mhmd.store/work/ahmed-ali/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/packaging-1080.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/logo-teal-1080.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/brand-board-1080.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/cup-facade-1080.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/stationery-1080.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/brochure-1080.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/bag-mug-1080.webp</image:loc></image:image>
+  </url>
+</urlset>
