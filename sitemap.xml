@@ -21,4 +21,13 @@
     <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/brochure-1080.webp</image:loc></image:image>
     <image:image><image:loc>https://mhmd.store/work/ahmed-ali/img/bag-mug-1080.webp</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://mhmd.store/work/matrix/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://mhmd.store/work/matrix/img/cover-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/matrix/img/logo-primary-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/matrix/img/engineering-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/matrix/img/digital-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://mhmd.store/work/matrix/img/finance-1600.webp</image:loc></image:image>
+  </url>
 </urlset>

@@ -288,6 +288,26 @@ section.block + section.block{padding-top:0}
   .g2,.g3{grid-template-columns:1fr}
   .g3 figure:last-child img{aspect-ratio:3/4}
 }
+/* landscape galleries (brand guideline boards) */
+.g1{grid-template-columns:1fr}
+.gallery.land img{aspect-ratio:3/2}
+/* colour row */
+.swatch-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.sw{display:grid;gap:3px;font-size:.78rem;color:var(--muted);min-width:0}
+.sw-c{display:block;aspect-ratio:1/1;border-radius:12px;border:1px solid var(--line);margin-bottom:8px}
+.sw b{color:var(--fg);font-size:.9rem;font-weight:500;direction:ltr;text-align:right}
+.sw span{direction:ltr;text-align:right;font-variant-numeric:tabular-nums}
+.sw em{font-style:normal;color:#cfcecb}
+/* type specimens rendered in the brand's own faces */
+.specimens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.spec-card{padding:clamp(20px,3vw,32px);border:1px solid var(--line);border-radius:14px;background:var(--panel);display:grid;gap:12px;align-content:start;min-width:0}
+.spec-name{font-size:.75rem;color:#6d6c69;letter-spacing:.06em}
+.spec-ar{margin:0;font-family:"Cairo",Tahoma,sans-serif;font-weight:700;font-size:clamp(1.5rem,1.1rem + 1.6vw,2.3rem);line-height:1.4;color:var(--fg)}
+.spec-sub-ar{margin:0;font-family:"Cairo",Tahoma,sans-serif;color:var(--muted)}
+.spec-en{margin:0;font-family:"Manrope",Arial,sans-serif;font-weight:700;font-size:clamp(1.4rem,1rem + 1.6vw,2.2rem);line-height:1.25;color:var(--fg);text-align:left}
+.spec-sub-en{margin:0;font-family:"Manrope",Arial,sans-serif;color:var(--muted);font-size:.9rem;line-height:1.7;text-align:left;overflow-wrap:anywhere}
+@media (max-width:900px){.swatch-row{grid-template-columns:repeat(3,minmax(0,1fr))}.specimens{grid-template-columns:1fr}}
+@media (max-width:600px){.g2.land{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
