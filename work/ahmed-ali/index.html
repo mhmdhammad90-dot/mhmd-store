@@ -95,12 +95,16 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.25;margin
 }
 
 /* ---------- hero: the PSD key visual ---------- */
-.hero-stage{position:relative;width:100%;aspect-ratio:16/9;max-height:calc(100svh - 72px);min-height:440px;overflow:hidden;background:#000;--px:0;--py:0}
+.hero-stage{position:relative;-webkit-user-select:none;user-select:none;width:100%;aspect-ratio:16/9;max-height:calc(100svh - 72px);min-height:440px;overflow:hidden;background:#000;--px:0;--py:0}
 .canvas{position:absolute;top:0;bottom:0;left:50%;height:100%;aspect-ratio:16/9;transform:translateX(-50%);direction:ltr;container-type:inline-size}
-.layer{position:absolute;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.layer{position:absolute;will-change:transform}
 .layer img{width:100%;height:auto;display:block}
-.mono-wrap{left:61.98%;top:0;width:38.02%;transform:translate(calc(var(--px) * -1.1cqw),calc(var(--py) * -.9cqw))}
-.port-wrap{left:57.552%;top:12.593%;width:42.448%;transform:translate(calc(var(--px) * .5cqw),calc(var(--py) * .35cqw))}
+.full{inset:0;width:100%;height:100%;pointer-events:none}
+.full img{width:100%;height:100%}
+.mark-wrap{left:61.979%;top:0;width:42.5%}
+.mark-wrap>div{position:relative}
+.glint{position:absolute;inset:0;opacity:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.9) 50%,transparent 60%) 150% 0/250% 100% no-repeat;mix-blend-mode:overlay;-webkit-mask:url(assets/mark.webp) center/100% 100% no-repeat;mask:url(assets/mark.webp) center/100% 100% no-repeat}
+.port-wrap{left:57.292%;top:12.685%;width:36.615%}
 .url{position:absolute;left:3.9%;top:7.75%;margin:0;font-family:var(--font-display);font-weight:500;font-size:1.03cqw;letter-spacing:.62em;color:#fff;white-space:nowrap}
 .hero-logo{position:absolute;left:3.958%;top:73.15%;width:20.52%;height:auto;overflow:visible}
 .replay{position:absolute;z-index:3;bottom:max(16px,env(safe-area-inset-bottom,0px));right:max(16px,env(safe-area-inset-right,0px));display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #ffffff26;background:#00000066;color:#cfcfcc;font:inherit;font-size:.8rem;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:color .2s,border-color .2s}

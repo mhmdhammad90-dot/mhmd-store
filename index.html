@@ -102,12 +102,16 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.25;margin
 }
 
 /* ---------- hero: the PSD key visual ---------- */
-.hero-stage{position:relative;width:100%;aspect-ratio:16/9;max-height:calc(100svh - 72px);min-height:440px;overflow:hidden;background:#000;--px:0;--py:0}
+.hero-stage{position:relative;-webkit-user-select:none;user-select:none;width:100%;aspect-ratio:16/9;max-height:calc(100svh - 72px);min-height:440px;overflow:hidden;background:#000;--px:0;--py:0}
 .canvas{position:absolute;top:0;bottom:0;left:50%;height:100%;aspect-ratio:16/9;transform:translateX(-50%);direction:ltr;container-type:inline-size}
-.layer{position:absolute;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.layer{position:absolute;will-change:transform}
 .layer img{width:100%;height:auto;display:block}
-.mono-wrap{left:61.98%;top:0;width:38.02%;transform:translate(calc(var(--px) * -1.1cqw),calc(var(--py) * -.9cqw))}
-.port-wrap{left:57.552%;top:12.593%;width:42.448%;transform:translate(calc(var(--px) * .5cqw),calc(var(--py) * .35cqw))}
+.full{inset:0;width:100%;height:100%;pointer-events:none}
+.full img{width:100%;height:100%}
+.mark-wrap{left:61.979%;top:0;width:42.5%}
+.mark-wrap>div{position:relative}
+.glint{position:absolute;inset:0;opacity:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.9) 50%,transparent 60%) 150% 0/250% 100% no-repeat;mix-blend-mode:overlay;-webkit-mask:url(assets/mark.webp) center/100% 100% no-repeat;mask:url(assets/mark.webp) center/100% 100% no-repeat}
+.port-wrap{left:57.292%;top:12.685%;width:36.615%}
 .url{position:absolute;left:3.9%;top:7.75%;margin:0;font-family:var(--font-display);font-weight:500;font-size:1.03cqw;letter-spacing:.62em;color:#fff;white-space:nowrap}
 .hero-logo{position:absolute;left:3.958%;top:73.15%;width:20.52%;height:auto;overflow:visible}
 .replay{position:absolute;z-index:3;bottom:max(16px,env(safe-area-inset-bottom,0px));right:max(16px,env(safe-area-inset-right,0px));display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid #ffffff26;background:#00000066;color:#cfcfcc;font:inherit;font-size:.8rem;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:color .2s,border-color .2s}
@@ -287,10 +291,13 @@ section.block + section.block{padding-top:0}
   <section class="hero-stage" id="stage" aria-label="محمد عبد الرحمن">
     <h1 class="sr">محمد عبد الرحمن، مصمم جرافيك ومدير التطوير الإبداعي والتجاري</h1>
     <div class="canvas">
-      <div class="layer mono-wrap"><img id="heroMono" src="assets/hero-mono.webp" width="730" height="970" alt="" fetchpriority="high"></div>
-      <div class="layer port-wrap"><img id="heroPortrait" src="assets/hero-portrait.webp" width="815" height="920" alt="بورتريه محفور لمحمد عبد الرحمن" fetchpriority="high"></div>
+      <div class="layer mark-wrap" id="hMarkScroll"><div id="hMarkWrap"><img id="hMark" src="assets/mark.webp" width="816" height="970" alt="" fetchpriority="high"><span class="glint" id="hGlint"></span></div></div>
+      <div class="layer full"><img src="assets/shade-back.webp" width="960" height="540" alt=""></div>
+      <div class="layer port-wrap" id="hPortScroll"><div id="hPortWrap"><img id="hPortrait" src="assets/portrait.webp" width="703" height="807" alt="بورتريه محفور لمحمد عبد الرحمن" fetchpriority="high"></div></div>
+      <div class="layer full" id="hShadeF"><img src="assets/shade-front.webp" width="960" height="540" alt=""></div>
+      <canvas class="layer full" id="hParticles" aria-hidden="true"></canvas>
       <p class="url" id="heroUrl">www.mhmd.store</p>
-      <svg class="hero-logo" viewBox="718 514 1684 658" role="img" aria-label="شعار محمد عبد الرحمن">
+      <svg class="hero-logo" id="heroLogo" viewBox="718 514 1684 658" role="img" aria-label="شعار محمد عبد الرحمن">
         <g id="ar" fill="#fff" stroke="#fff" stroke-width="3">
           <path id="arDot" d="M1339.35,546.6c4.08-.58,6.99-2.91,9.9-5.24l22.71-24.45-1.75-2.33-120.53,34.94c-4.08,1.16-6.99,3.49-9.9,5.82l-13.97,16.89,1.75,2.91,111.8-28.53Z"/>
           <path id="arMain" d="M1625.04,601.35c-25.08,0-53.2,20.14-82.08,72.2l-20.14,37.24c-4.94.38-10.26.38-15.58.38-43.7,0-63.08-1.9-71.06-13.3h31.54l17.48-45.22-3.8-5.32h-16.72c-64.6,0-108.3-45.6-153.9-45.6-22.8,0-33.06,11.4-43.32,20.9l-10.26,42.94,4.56,4.94c10.64-1.52,21.28-2.66,28.88-2.66,21.66,0,47.5,9.12,79.04,17.1-46.74,21.28-110.96,36.1-163.02,36.1-35.34,0-66.12-5.7-82.08-15.2h0c-8.74-4.56-20.14-11.78-28.5-30.02l-11.4-24.7c-12.92-28.12-34.2-38.76-51.68-38.76-30.78,0-67.26,31.92-85.5,65.36l-9.88,17.86c-2.66,5.32-4.56,10.64-5.32,15.2-4.18.38-8.36.38-12.92.38-23.18,0-33.44-1.14-40.28-21.28l-38-111.34h-15.2l-26.22,45.22,34.96,84.36c-13.68,2.66-31.92,5.32-52.82,5.32-25.08,0-34.2-4.18-43.32-32.68h-15.96c-2.28,21.28-4.18,47.88-4.18,58.14,0,35.72,22.8,45.98,48.26,45.98s50.54-9.12,66.88-21.28l9.5-34.96,1.52,3.42c15.58,37.62,29.64,50.92,56.24,50.92.13,0,.25-.01.38-.01h0c14.82.01,28.12-3.41,35.34-7.21l15.96-32.68c28.88,17.48,56.24,31.54,92.34,38l24.7-46.36c8.36,15.96,17.86,30.78,32.68,38.76h0c19.76,11.4,49.02,16.72,80.56,16.72,39.9,0,83.98-8.74,117.8-25.08,19.76-9.5,33.44-20.9,45.98-31.92,18.62-15.58,35.34-30.02,66.88-34.2v19c0,42.18,17.48,64.98,75.24,64.98.13,0,.25-.01.38-.01h0c14.82.01,28.12-3.41,35.34-7.21l18.62-37.62,6.84,3.8c30.4,16.72,58.9,26.98,97.28,31.54,12.54-18.62,25.84-41.8,33.06-62.7l1.14-3.04c17.48-51.3-14.82-106.4-56.24-106.4ZM971.44,684.95c6.08-12.92,16.72-18.62,29.26-18.62,31.92,0,45.98,23.56,58.9,49.02-34.2-10.64-61.18-19.76-88.16-30.4ZM1565,679.63c8.36-14.82,19-20.9,30.78-20.9,24.32,0,50.16,25.08,55.48,50.16-20.9-5.32-53.2-15.2-86.26-29.26Z"/>
@@ -556,55 +563,9 @@ const CONFIG = {
   });
 })();
 
-/* ===== Hero reveal: portrait, monogram, then the logo is written ===== */
-(function(){
-  const $=id=>document.getElementById(id);
-  const ease='cubic-bezier(.2,.8,.2,1)';
-  let anims=[];
-  function seg(el,from,to,t0,t1,e=ease){
-    const a=el.animate([from,to],{delay:t0,duration:t1-t0,easing:e,fill:'both'});anims.push(a);return a;
-  }
-  function build(){
-    anims.forEach(a=>a.cancel());anims=[];
-    seg($('heroPortrait'),{opacity:0,transform:'scale(1.05)',filter:'brightness(.4)'},{opacity:1,transform:'scale(1)',filter:'brightness(1)'},0,1600,'cubic-bezier(.25,.6,.2,1)');
-    seg($('heroMono'),{opacity:0,transform:'translate(14%,-10%)'},{opacity:1,transform:'translate(0,0)'},250,1650,'cubic-bezier(.7,0,.15,1)');
-    seg($('heroUrl'),{opacity:0,letterSpacing:'1.1em'},{opacity:1,letterSpacing:'.62em'},500,1700);
-
-    const div=$('divider'); div.style.transformBox='fill-box'; div.style.transformOrigin='50% 50%';
-    seg(div,{transform:'scaleY(0)'},{transform:'scaleY(1)'},900,1700,'cubic-bezier(.7,0,.2,1)');
-    seg($('markTop'),{transform:'translate(140px,-140px)',opacity:0},{transform:'translate(0,0)',opacity:1},1100,1950);
-    seg($('markBot'),{transform:'translate(-140px,140px)',opacity:0},{transform:'translate(0,0)',opacity:1},1100,1950);
-
-    const ar=$('arMain'),L=Math.ceil(ar.getTotalLength()); ar.style.strokeDasharray=L;
-    anims.push(ar.animate([
-      {strokeDashoffset:L,fillOpacity:0,strokeOpacity:1,offset:0},
-      {strokeDashoffset:0,fillOpacity:0,strokeOpacity:1,offset:.78,easing:'ease-out'},
-      {strokeDashoffset:0,fillOpacity:1,strokeOpacity:0,offset:1}
-    ],{delay:1300,duration:2000,easing:'cubic-bezier(.45,0,.25,1)',fill:'both'}));
-    const dot=$('arDot'); dot.style.transformBox='fill-box'; dot.style.transformOrigin='50% 50%';
-    seg(dot,{transform:'translateX(-90px)',opacity:0,strokeOpacity:0},{transform:'translateX(0)',opacity:1,strokeOpacity:0},3000,3600);
-    [...$('name').children].forEach((p,i)=>seg(p,{transform:'translateY(30px)',opacity:0},{transform:'translateY(0)',opacity:1},2900+i*35,3500+i*35));
-    [...$('title').children].forEach((p,i)=>seg(p,{opacity:0},{opacity:1},3300+i*22,3800+i*22,'ease-out'));
-    seg($('tm'),{opacity:0},{opacity:1},3900,4300,'ease-out');
-  }
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduce) build();
-  $('replay').addEventListener('click',build);
-  if(reduce) $('replay').hidden=true;
-
-  // gentle depth on pointer move (desktop)
-  const stage=$('stage');
-  if(!reduce && matchMedia('(hover:hover)').matches){
-    stage.addEventListener('pointermove',e=>{
-      const r=stage.getBoundingClientRect();
-      stage.style.setProperty('--px',((e.clientX-r.left)/r.width*2-1).toFixed(3));
-      stage.style.setProperty('--py',((e.clientY-r.top)/r.height*2-1).toFixed(3));
-    });
-    stage.addEventListener('pointerleave',()=>{stage.style.setProperty('--px',0);stage.style.setProperty('--py',0)});
-  }
-})();
 </script>
 
+<script type="module" src="assets/hero.js"></script>
 
 </body>
 </html>
