@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mhmd.store/sitemap.xml
+Sitemap: https://mhmd.ps/sitemap.xml
